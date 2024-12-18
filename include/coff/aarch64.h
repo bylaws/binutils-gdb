@@ -31,7 +31,7 @@
 #define	AARCH64MAGIC	0xaa64  /* From Microsoft specification. */
 
 #undef  BADMAG
-#define BADMAG(x) ((x).f_magic != AARCH64MAGIC)
+#define BADMAG(x) ((x).f_magic != AARCH64MAGIC && (x).f_magic != 0x8664)
 #define AARCH64         1                 /* Customize coffcode.h.  */
 
 #define IMAGE_NT_OPTIONAL_HDR64_MAGIC      0x20b

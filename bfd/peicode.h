@@ -703,12 +703,10 @@ static const jump_table jtab[] =
   },
 #endif
 
-#ifdef AMD64MAGIC
-  { AMD64MAGIC,
+  { 0x8664,
     { 0xff, 0x25, 0x00, 0x00, 0x00, 0x00, 0x90, 0x90 },
     8, 2
   },
-#endif
 
 #ifdef  MC68MAGIC
   { MC68MAGIC,
@@ -1231,12 +1229,6 @@ pe_ILF_object_p (bfd *abfd)
 #endif
       break;
 
-    case IMAGE_FILE_MACHINE_AMD64:
-#ifdef AMD64MAGIC
-      magic = AMD64MAGIC;
-#endif
-      break;
-
     case IMAGE_FILE_MACHINE_R3000:
     case IMAGE_FILE_MACHINE_R4000:
     case IMAGE_FILE_MACHINE_R10000:
@@ -1263,6 +1255,7 @@ pe_ILF_object_p (bfd *abfd)
       break;
 
     case IMAGE_FILE_MACHINE_ARM64:
+    case IMAGE_FILE_MACHINE_AMD64:
 #ifdef AARCH64MAGIC
       magic = AARCH64MAGIC;
 #endif

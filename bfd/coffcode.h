@@ -2182,7 +2182,6 @@ coff_set_arch_mach_hook (bfd *abfd, void * filehdr)
       break;
 #endif
 #ifdef AMD64MAGIC
-    case AMD64MAGIC:
     case AMD64_APPLE_MAGIC:
     case AMD64_FREEBSD_MAGIC:
     case AMD64_LINUX_MAGIC:
@@ -2224,6 +2223,7 @@ coff_set_arch_mach_hook (bfd *abfd, void * filehdr)
       break;
 #endif
 #ifdef AARCH64MAGIC
+    case 0x8664:
     case AARCH64MAGIC:
       arch = bfd_arch_aarch64;
       machine = internal_f->f_flags & F_AARCH64_ARCHITECTURE_MASK;
